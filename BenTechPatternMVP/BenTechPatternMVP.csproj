@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{341A966F-7F4B-42CD-9357-E7868D7CA217}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BenTechPatternMVP</RootNamespace>
+    <AssemblyName>BenTechPatternMVP</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\UserContext.cs" />
+    <Compile Include="DTO\Login\ILoginDTO.cs" />
+    <Compile Include="DTO\Login\LoginDTO.cs" />
+    <Compile Include="DTO\Prices\IPriceDTO.cs" />
+    <Compile Include="DTO\Prices\PriceDTO.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Calendar\CalendarModel.cs" />
+    <Compile Include="Model\Calendar\ICalendarModel.cs" />
+    <Compile Include="Model\CustomTextBox\CustomTextBoxModel.cs" />
+    <Compile Include="Model\CustomTextBox\ICustomTextBoxModel.cs" />
+    <Compile Include="Model\Days\CalendarDay\CalendarDayModel.cs" />
+    <Compile Include="Model\Days\CalendarDay\ICalendarDayModel.cs" />
+    <Compile Include="Presenter\Calendar\CalendarPresenter.cs" />
+    <Compile Include="Presenter\Calendar\ICalendarPresenter.cs" />
+    <Compile Include="Presenter\Price\PriceController\PriceControlPresenter.cs" />
+    <Compile Include="Presenter\CustomTextBox\CustomTextBoxPresenter.cs" />
+    <Compile Include="Presenter\Days\DayPresenter.cs" />
+    <Compile Include="Presenter\Home\HomePresenter.cs" />
+    <Compile Include="Presenter\Login\LoginPresenter.cs" />
+    <Compile Include="Presenter\Main\MainPresenter.cs" />
+    <Compile Include="Presenter\Price\PriceForm\PriceFormPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Login\LoginRepository.cs" />
+    <Compile Include="Repository\Prices\PriceRepository.cs" />
+    <Compile Include="Services\Login\LoginService.cs" />
+    <Compile Include="Services\Prices\PriceService.cs" />
+    <Compile Include="View\Calendar\CalendarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Calendar\CalendarView.Designer.cs">
+      <DependentUpon>CalendarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Calendar\ICalendarView.cs" />
+    <Compile Include="View\Controller\Controller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Controller\Controller.Designer.cs">
+      <DependentUpon>Controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controller\IController.cs" />
+    <Compile Include="View\Price\PriceControl\IPriceControlView.cs" />
+    <Compile Include="View\CustomTextBox\CustomTextBoxView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CustomTextBox\CustomTextBoxView.Designer.cs">
+      <DependentUpon>CustomTextBoxView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomTextBox\ICustomTextBoxView.cs" />
+    <Compile Include="View\Days\Day\DayView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Days\Day\DayView.Designer.cs">
+      <DependentUpon>DayView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Days\Day\IDayView.cs" />
+    <Compile Include="View\Days\EmptyDay\DayEmptyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Days\EmptyDay\DayEmptyView.Designer.cs">
+      <DependentUpon>DayEmptyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Days\EmptyDay\IDayEmptyView.cs" />
+    <Compile Include="View\Home\HomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Home\HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home\IHomeView.cs" />
+    <Compile Include="View\Login\ILoginView.cs" />
+    <Compile Include="View\Login\LoginEventArgs.cs" />
+    <Compile Include="View\Login\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Price\PriceControl\PriceControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Price\PriceControl\PriceControlView.Designer.cs">
+      <DependentUpon>PriceControlView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Price\PriceForm\IPriceFormView.cs" />
+    <Compile Include="View\Price\PriceForm\PriceFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Price\PriceForm\PriceFormView.Designer.cs">
+      <DependentUpon>PriceFormView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Calendar\CalendarView.resx">
+      <DependentUpon>CalendarView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomTextBox\CustomTextBoxView.resx">
+      <DependentUpon>CustomTextBoxView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Days\Day\DayView.resx">
+      <DependentUpon>DayView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Days\EmptyDay\DayEmptyView.resx">
+      <DependentUpon>DayEmptyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Home\HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Price\PriceControl\PriceControlView.resx">
+      <DependentUpon>PriceControlView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Price\PriceForm\PriceFormView.resx">
+      <DependentUpon>PriceFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Days\CalendarDayEmpty\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
