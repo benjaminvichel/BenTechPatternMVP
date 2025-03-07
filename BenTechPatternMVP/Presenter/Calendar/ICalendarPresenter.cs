@@ -1,4 +1,6 @@
-﻿using BenTechPatternMVP.View.Calendar;
+﻿using BenTechPatternMVP.Model.Days.CalendarDay;
+using BenTechPatternMVP.Model.Days.DateDTO;
+using BenTechPatternMVP.View.Calendar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace BenTechPatternMVP.Presenter.Calendar
         //events
         event Action<DateTime> DayCreated;
         event Action DayEmptyCreated;
+        event Action CreateNewPriceView;
+        event EventHandler<List<DateDTO>> DatesInRange;
 
         ICalendarView CalendarView { get; }
 

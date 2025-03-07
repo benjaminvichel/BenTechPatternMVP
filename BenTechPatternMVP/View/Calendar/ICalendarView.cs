@@ -11,6 +11,7 @@ namespace BenTechPatternMVP.View.Calendar
         event EventHandler<DateTime> TimePickerCalendarValueChanged;
         event EventHandler<DateTime> DateTimePickerCalendarCloseUp;
         event Action CreateAllPredefinedPrices;
+        event Action CreateNewPrice;
 
         void ResetAllPanels();
         void CreateDays();

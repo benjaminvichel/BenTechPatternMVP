@@ -63,6 +63,7 @@ namespace BenTechPatternMVP.View.PriceControl
             this.PanelColor.Name = "PanelColor";
             this.PanelColor.Size = new System.Drawing.Size(29, 19);
             this.PanelColor.TabIndex = 6;
+            this.PanelColor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
             // 
             // PriceControlView
             // 

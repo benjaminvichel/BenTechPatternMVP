@@ -16,8 +16,6 @@ namespace BenTechPatternMVP.Services.Prices
         public PriceService()
         {
             _repository = new PriceRepository();
-
-
         }
 
 
@@ -43,13 +41,80 @@ namespace BenTechPatternMVP.Services.Prices
                     };
                 }
             }
+            catch (HttpRequestException ex)
+            {
+                return new List<IPriceDTO> { new PriceDTO { ErrorMessage = $"Falha na comunicação com a API: {ex.Message}" } };
+            }
             catch (Exception ex)
             {
-                return new List<IPriceDTO>
-                {
-                 new PriceDTO { ErrorMessage = ex.Message }
-                };
+                return new List<IPriceDTO> { new PriceDTO { ErrorMessage = $"Erro inesperado: {ex.Message}" } };
             }
+        }
+
+        public async Task UpdatePrice(IPriceDTO price)
+        {
+            try
+            {
+                var jsonContent = JsonConvert.SerializeObject(price);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _repository.UpdatePriceAsync(content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao atualizar preço: {errorMessage}");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao atualizar preço", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao atualizar preço", ex);
+            }
+        }
+
+        public async Task DeletePrice(string colorCode)
+        {
+            try
+            {
+                await _repository.DeletePriceAsync(colorCode);
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao excluir preço", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao excluir preço", ex);
+            }
+        }
+
+        public async Task CreatePrice(IPriceDTO price)
+        {
+            try
+            {
+                string jsonContent = JsonConvert.SerializeObject(price);
+                StringContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _repository.CreateNewPriceAsync(content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao criar preço: {errorMessage}");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao criar preço", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao criar preço", ex);
+            }
+
         }
     }
 }

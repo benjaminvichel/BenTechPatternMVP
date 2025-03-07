@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="1.717" Y="4.799" Height="0.291" Width="1.252" />
+  </Comment>
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="1.365" Y="2.313" Height="0.291" Width="1.211" />
+  </Comment>
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="3.719" Y="3.145" Height="0.291" Width="1.231" />
+  </Comment>
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="1.046" Y="9.828" Height="0.291" Width="1.325" />
+  </Comment>
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="4.817" Y="13.588" Height="0.291" Width="1.325" />
+  </Comment>
+  <Comment CommentText="Dependency --&gt;">
+    <Position X="1.921" Y="15.151" Height="0.291" Width="1.325" />
+  </Comment>
+  <Class Name="BenTechPatternMVP.Program">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BenTechPatternMVP.Presenter.Login.LoginPresenter">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAgAAACAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenter\Login\LoginPresenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_loginView" />
+      <Field Name="_loginService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.Services.Login.LoginService">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAQAA=</HashCode>
+      <FileName>Services\Login\LoginService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_loginRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.Repository.Login.LoginRepository">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\Login\LoginRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BenTechPatternMVP.DTO.LoginDTO" Collapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>DTO\Login\LoginDTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.19" />
+  </Class>
+  <Class Name="BenTechPatternMVP.View.Controller.Controller">
+    <Position X="2.75" Y="6.75" Width="1.5" />
+    <AssociationLine Name="_loginPresenter" Type="BenTechPatternMVP.Presenter.Login.LoginPresenter" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="6.75" />
+        <Point X="4" Y="6.375" />
+        <Point X="6.5" Y="6.375" />
+        <Point X="6.5" Y="3.997" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAAACAAAgCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Controller\Controller.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_loginPresenter" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.983" />
+  </Class>
+  <Class Name="BenTechPatternMVP.Presenter.Home.HomePresenter">
+    <Position X="1.75" Y="11.75" Width="1.5" />
+    <AssociationLine Name="_view" Type="BenTechPatternMVP.View.Home.IHomeView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.375" Y="11.75" />
+        <Point X="2.375" Y="11.562" />
+        <Point X="4.25" Y="11.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAACAAAAAAAAAAAAAAAAAAACAAAAQAAAA=</HashCode>
+      <FileName>Presenter\Home\HomePresenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_view" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.View.Home.HomeView" Collapsed="true">
+    <Position X="4.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VABAAAAAAKAAATAAARCQAAACABAECAgEAAACAAAAAAg=</HashCode>
+      <FileName>View\Home\HomeView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.239" />
+  </Class>
+  <Class Name="BenTechPatternMVP.View.Calendar.CalendarView" Collapsed="true">
+    <Position X="11.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>55AQAAAAAHAAgBAABICAAgQCgCSECwIwQAAAAQCSBAA=</HashCode>
+      <FileName>View\Calendar\CalendarView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BenTechPatternMVP.Presenter.Calendar.CalendarPresenter">
+    <Position X="8.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABEAAAiABBAAAQAggAEAACAABABAAAAQCCAAAAQADA=</HashCode>
+      <FileName>Presenter\Calendar\CalendarPresenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_view" />
+      <Field Name="_model" />
+      <Field Name="_datesService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BenTechPatternMVP.Services.Dates.DatesService">
+    <Position X="11.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Dates\DatesService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.Repository.Dates.DatesRepository">
+    <Position X="14.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\Dates\DatesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BenTechPatternMVP.Model.Calendar.CalendarModel" Collapsed="true">
+    <Position X="14.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Calendar\CalendarModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.192" />
+  </Class>
+  <Class Name="BenTechPatternMVP.Presenter.PriceControl.PriceControlPresenter">
+    <Position X="2" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAiAAAAAAAAAAAAAAAAAAAAACAAAgCAAAAACAAA=</HashCode>
+      <FileName>Presenter\Price\PriceController\PriceControlPresenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_view" />
+      <Field Name="_priceService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.Services.Prices.PriceService">
+    <Position X="5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAEAAAAAAAQAAAAAAAABAAACAAA=</HashCode>
+      <FileName>Services\Prices\PriceService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BenTechPatternMVP.Repository.Prices.PriceRepository" Collapsed="true">
+    <Position X="9.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAIABAAAA=</HashCode>
+      <FileName>Repository\Prices\PriceRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BenTechPatternMVP.View.PriceControl.PriceControlView" Collapsed="true">
+    <Position X="5" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAgAAAACAAEAAAAACAAAACAAAAAAAAASAAAAACAAA=</HashCode>
+      <FileName>View\Price\PriceControl\PriceControlView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_priceData" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BenTechPatternMVP.View.Login.LoginEventArgs">
+    <Position X="10.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>View\Login\LoginEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BenTechPatternMVP.View.Login.ILoginView" Collapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAQQAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Login\ILoginView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.DTO.ILoginDTO" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>DTO\Login\ILoginDTO.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.View.Home.IHomeView" Collapsed="true">
+    <Position X="4.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Home\IHomeView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.View.Calendar.ICalendarView" Collapsed="true">
+    <Position X="11.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAgAAABIAAAgQAAAAACQIQQAAAAACSAAA=</HashCode>
+      <FileName>View\Calendar\ICalendarView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.Model.Calendar.ICalendarModel" Collapsed="true">
+    <Position X="11.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Calendar\ICalendarModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.View.PriceControl.IPriceControlView" Collapsed="true">
+    <Position X="5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>View\Price\PriceControl\IPriceControlView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BenTechPatternMVP.DTO.Prices.IPriceDTO" Collapsed="true">
+    <Position X="8" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQBAAAAYAAAAAAAAAEAAAAQAAQAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>DTO\Prices\IPriceDTO.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

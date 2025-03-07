@@ -18,21 +18,27 @@ namespace BenTechPatternMVP.View.PriceControl
 
             if (_priceData != null)
             {
-                DisplayColor();
+                DisplayInfos();
             }
         }
 
         public void SetPriceData()
         {
         }
-        public void DisplayColor()
+        public void DisplayInfos()
         {
             PanelColor.BackColor = ColorTranslator.FromHtml(_priceData.ColorCode);
+            lblName.Text = _priceData.Name;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             ClickedBtnEdit.Invoke(this, _priceData);
+        }
+
+        private void PanelColor_MouseDown(object sender, MouseEventArgs e)
+        {
+            PanelColor.DoDragDrop(_priceData, DragDropEffects.Copy);
         }
     }
 }

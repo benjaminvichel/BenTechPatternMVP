@@ -31,7 +31,6 @@ namespace BenTechPatternMVP.View.Controller
 
         }
 
-
         public void OnLoginSuccessful()
         {
 

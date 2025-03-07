@@ -11,6 +11,6 @@ namespace BenTechPatternMVP.View.PriceControl
     {
         event EventHandler<IPriceDTO> ClickedBtnEdit;
         void SetPriceData();
-        void DisplayColor();
+        void DisplayInfos();
     }
 }

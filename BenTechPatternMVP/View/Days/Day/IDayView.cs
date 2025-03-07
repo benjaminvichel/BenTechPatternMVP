@@ -3,8 +3,9 @@ using System.Drawing;
 
 namespace BenTechPatternMVP.View.Day
 {
-    interface IDayView
+    public interface IDayView
     {
+        event Action<IDayView> DayClicked;
         DateTime Date { get; }
         void AllowDropInCalendarDay();
         void DefineDayToLabel(string exactDay);

@@ -228,6 +228,7 @@ namespace BenTechPatternMVP.View.Calendar
             this.ibtnCreateNewPredefinedValues.TabIndex = 0;
             this.ibtnCreateNewPredefinedValues.Text = "Add predefined values";
             this.ibtnCreateNewPredefinedValues.UseVisualStyleBackColor = false;
+            this.ibtnCreateNewPredefinedValues.Click += new System.EventHandler(this.ibtnCreateNewPredefinedValues_Click);
             // 
             // CalendarView
             // 

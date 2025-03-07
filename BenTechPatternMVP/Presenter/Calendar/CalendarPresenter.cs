@@ -1,7 +1,11 @@
 ﻿using BenTechPatternMVP.Context;
 using BenTechPatternMVP.Model.Calendar;
+using BenTechPatternMVP.Model.Days.CalendarDay;
+using BenTechPatternMVP.Model.Days.DateDTO;
+using BenTechPatternMVP.Services.Dates;
 using BenTechPatternMVP.View.Calendar;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace BenTechPatternMVP.Presenter.Calendar
@@ -10,12 +14,16 @@ namespace BenTechPatternMVP.Presenter.Calendar
     {
         private readonly ICalendarView _view;
         private readonly ICalendarModel _model;
+        private readonly DatesService _datesService;
+
 
         public ICalendarView CalendarView => _view;
 
         //events
         public event Action<DateTime> DayCreated;
         public event Action DayEmptyCreated;
+        public event Action CreateNewPriceView;
+        public event EventHandler<List<DateDTO>> DatesInRange;
 
 
 
@@ -23,12 +31,13 @@ namespace BenTechPatternMVP.Presenter.Calendar
         {
             _view = view;
             _model = new CalendarModel();
+            _datesService = new DatesService();
             _view.CreateAllDays += OnCreateAllDays;
             _view.ChangeToNextMonth += OnChangeToNextMonth;
             _view.ChangeToPreviousMonth += OnChangeToPreviousMonth;
             _view.TimePickerCalendarValueChanged += OnTimePickerCalendarValueChanged;
             _view.DateTimePickerCalendarCloseUp += OnDateTimePickerCalendarCloseUp;
-
+            _view.CreateNewPrice += () => CreateNewPriceView?.Invoke();
 
         }
 
@@ -41,7 +50,7 @@ namespace BenTechPatternMVP.Presenter.Calendar
         {
             _view.CreateDays();
         }
-        private void OnCreateAllDays()
+        private async void OnCreateAllDays()
         {
 
             DateTime firstDayOfMonth = new DateTime(_model.Date.Year, _model.Date.Month, 1);
@@ -49,9 +58,17 @@ namespace BenTechPatternMVP.Presenter.Calendar
             // Número de dias no mês
             int daysInMonth = DateTime.DaysInMonth(_model.Date.Year, _model.Date.Month);
 
+            // Último dia do mês
+            DateTime lastDayOfMonth = new DateTime(_model.Date.Year, _model.Date.Month, daysInMonth);
+
             // Dia da semana do primeiro dia do mês (como número)
             int dayOfWeek = Convert.ToInt32(firstDayOfMonth.DayOfWeek.ToString("d"));
 
+            string formattedFirstDay = firstDayOfMonth.ToString("yyyy-MM-dd");
+            string formattedLastDay = lastDayOfMonth.ToString("yyyy-MM-dd");
+
+            var dates = await _datesService.GetDatesInRange(formattedFirstDay, formattedLastDay);//continuar daqui!!!
+            DatesInRange.Invoke(this, dates);
 
             _view.SetValueInDateTimePicker(_model.Date);
             _view.ClearPanelControls();
@@ -119,5 +136,6 @@ namespace BenTechPatternMVP.Presenter.Calendar
         {
             _view.OpenPresenterView(priceControlView);
         }
+
     }
 }

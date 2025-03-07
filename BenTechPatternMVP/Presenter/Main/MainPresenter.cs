@@ -1,4 +1,6 @@
 ﻿using BenTechPatternMVP.DTO.Prices;
+using BenTechPatternMVP.Model.Days.CalendarDay;
+using BenTechPatternMVP.Model.Days.DateDTO;
 using BenTechPatternMVP.Presenter.Calendar;
 using BenTechPatternMVP.Presenter.Home;
 using BenTechPatternMVP.Presenter.Price.PriceForm;
@@ -23,7 +25,7 @@ namespace BenTechPatternMVP.Presenter.Main
         private readonly ICalendarPresenter _calendarPresenter;
         private readonly PriceControlPresenter _priceControlPresenter;
         private readonly List<PriceControlPresenter> _priceControlPresenters = new List<PriceControlPresenter>();
-
+        private readonly List<DateDTO> _listDateDTO = new List<DateDTO>();
 
 
 
@@ -47,16 +49,37 @@ namespace BenTechPatternMVP.Presenter.Main
             _calendarPresenter.DayCreated += OnDayCreated;
             _calendarPresenter.DayEmptyCreated += OnDayEmptyCreated;
             _priceControlPresenter.PricesRetrieved += OnPricesRetrieved;
+            _calendarPresenter.CreateNewPriceView += OnCreateNewPriceView;
+            _calendarPresenter.DatesInRange += OnDatesInRange;
 
             _homePresenter.ShowHomeView();
 
         }
 
-
+        private void OnDatesInRange(object sender, List<DateDTO> listDates)
+        {
+            _listDateDTO.Clear();
+            foreach (var item in listDates)
+            {
+                _listDateDTO.Add(new DateDTO
+                {
+                    Date = item.Date,
+                    ColorCode = item.ColorCode
+                });
+            }
+        }
 
         private void OnDayCreated(DateTime date)
         {
-            var ucDay = new DayView(date);
+            string colorCode ="";
+            foreach (var item in _listDateDTO)
+            {
+                if (date == item.Date)
+                {
+                    colorCode = item.ColorCode;
+                }
+            }
+            var ucDay = new DayView(date,colorCode);
             string exactDay = date.ToString("dd");
             ucDay.DefineDayToLabel(exactDay);
             _calendarPresenter.AddDaysInView(ucDay);
@@ -66,6 +89,8 @@ namespace BenTechPatternMVP.Presenter.Main
             var emptyDay = new DayEmptyView();
             _calendarPresenter.AddDayEmptyInView(emptyDay);
         }
+
+
         private void OnDatabaseClicked(object sender, EventArgs e)
         {
             _calendarPresenter.ResetAllPanels();
@@ -90,9 +115,19 @@ namespace BenTechPatternMVP.Presenter.Main
 
         private void OnPriceControlView_btnClick(object sender, IPriceDTO priceDTO)
         {
-            IPriceFormView priceFormView = new PriceFormView();
+            IPriceFormView priceFormView = new PriceFormView(false);//false to indicate view to hide componentes
             PriceFormPresenter priceFormPresenter = new PriceFormPresenter(priceFormView, priceDTO);
+            priceFormPresenter.ResetDatabase += OnResetDatabase;
         }
-
+        private void OnResetDatabase()
+        {
+            OnDatabaseClicked(this, EventArgs.Empty);
+        }
+        private void OnCreateNewPriceView()
+        {
+            IPriceFormView priceFormView = new PriceFormView();
+            PriceFormPresenter priceFormPresenter = new PriceFormPresenter(priceFormView);
+            priceFormPresenter.ResetDatabase += OnResetDatabase;
+        }
     }
 }

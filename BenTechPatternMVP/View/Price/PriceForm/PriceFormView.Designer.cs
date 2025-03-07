@@ -34,13 +34,15 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.btnSave = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
             this.btnColor = new System.Windows.Forms.Button();
-            this.ctbCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbSingle = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTriple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbQuadruple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbQuintuple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbChild03To06 = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ColorDialogPriceFormView = new System.Windows.Forms.ColorDialog();
+            this.ctbName = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
             this.ctbChild07To10 = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbChild03To06 = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbQuintuple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbQuadruple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbTriple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbSingle = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -59,7 +61,7 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -73,6 +75,7 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panelColor
             // 
@@ -93,78 +96,19 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.btnColor.TabIndex = 20;
             this.btnColor.Text = "Color";
             this.btnColor.UseVisualStyleBackColor = false;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
-            // ctbCouple
+            // ctbName
             // 
-            this.ctbCouple.BackColor = System.Drawing.Color.White;
-            this.ctbCouple.ChangeTextBoxSize = true;
-            this.ctbCouple.CustomText = "Couple";
-            this.ctbCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbCouple.Location = new System.Drawing.Point(12, 12);
-            this.ctbCouple.Name = "ctbCouple";
-            this.ctbCouple.Password = false;
-            this.ctbCouple.Size = new System.Drawing.Size(289, 49);
-            this.ctbCouple.TabIndex = 25;
-            // 
-            // ctbSingle
-            // 
-            this.ctbSingle.BackColor = System.Drawing.Color.White;
-            this.ctbSingle.ChangeTextBoxSize = true;
-            this.ctbSingle.CustomText = "Single";
-            this.ctbSingle.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbSingle.Location = new System.Drawing.Point(12, 67);
-            this.ctbSingle.Name = "ctbSingle";
-            this.ctbSingle.Password = false;
-            this.ctbSingle.Size = new System.Drawing.Size(289, 49);
-            this.ctbSingle.TabIndex = 26;
-            // 
-            // ctbTriple
-            // 
-            this.ctbTriple.BackColor = System.Drawing.Color.White;
-            this.ctbTriple.ChangeTextBoxSize = true;
-            this.ctbTriple.CustomText = "Triple";
-            this.ctbTriple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTriple.Location = new System.Drawing.Point(12, 122);
-            this.ctbTriple.Name = "ctbTriple";
-            this.ctbTriple.Password = false;
-            this.ctbTriple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTriple.TabIndex = 27;
-            // 
-            // ctbQuadruple
-            // 
-            this.ctbQuadruple.BackColor = System.Drawing.Color.White;
-            this.ctbQuadruple.ChangeTextBoxSize = true;
-            this.ctbQuadruple.CustomText = "Quadruple";
-            this.ctbQuadruple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbQuadruple.Location = new System.Drawing.Point(12, 177);
-            this.ctbQuadruple.Name = "ctbQuadruple";
-            this.ctbQuadruple.Password = false;
-            this.ctbQuadruple.Size = new System.Drawing.Size(289, 49);
-            this.ctbQuadruple.TabIndex = 28;
-            // 
-            // ctbQuintuple
-            // 
-            this.ctbQuintuple.BackColor = System.Drawing.Color.White;
-            this.ctbQuintuple.ChangeTextBoxSize = true;
-            this.ctbQuintuple.CustomText = "Quintuple";
-            this.ctbQuintuple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbQuintuple.Location = new System.Drawing.Point(12, 232);
-            this.ctbQuintuple.Name = "ctbQuintuple";
-            this.ctbQuintuple.Password = false;
-            this.ctbQuintuple.Size = new System.Drawing.Size(289, 49);
-            this.ctbQuintuple.TabIndex = 29;
-            // 
-            // ctbChild03To06
-            // 
-            this.ctbChild03To06.BackColor = System.Drawing.Color.White;
-            this.ctbChild03To06.ChangeTextBoxSize = true;
-            this.ctbChild03To06.CustomText = "Child 03-06";
-            this.ctbChild03To06.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbChild03To06.Location = new System.Drawing.Point(12, 287);
-            this.ctbChild03To06.Name = "ctbChild03To06";
-            this.ctbChild03To06.Password = false;
-            this.ctbChild03To06.Size = new System.Drawing.Size(289, 49);
-            this.ctbChild03To06.TabIndex = 30;
+            this.ctbName.BackColor = System.Drawing.Color.White;
+            this.ctbName.ChangeTextBoxSize = true;
+            this.ctbName.CustomText = "Name";
+            this.ctbName.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbName.Location = new System.Drawing.Point(12, 3);
+            this.ctbName.Name = "ctbName";
+            this.ctbName.Password = false;
+            this.ctbName.Size = new System.Drawing.Size(289, 49);
+            this.ctbName.TabIndex = 32;
             // 
             // ctbChild07To10
             // 
@@ -172,11 +116,83 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.ctbChild07To10.ChangeTextBoxSize = true;
             this.ctbChild07To10.CustomText = "Child 07-10";
             this.ctbChild07To10.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbChild07To10.Location = new System.Drawing.Point(12, 342);
+            this.ctbChild07To10.Location = new System.Drawing.Point(12, 388);
             this.ctbChild07To10.Name = "ctbChild07To10";
             this.ctbChild07To10.Password = false;
             this.ctbChild07To10.Size = new System.Drawing.Size(289, 49);
             this.ctbChild07To10.TabIndex = 31;
+            // 
+            // ctbChild03To06
+            // 
+            this.ctbChild03To06.BackColor = System.Drawing.Color.White;
+            this.ctbChild03To06.ChangeTextBoxSize = true;
+            this.ctbChild03To06.CustomText = "Child 03-06";
+            this.ctbChild03To06.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbChild03To06.Location = new System.Drawing.Point(12, 333);
+            this.ctbChild03To06.Name = "ctbChild03To06";
+            this.ctbChild03To06.Password = false;
+            this.ctbChild03To06.Size = new System.Drawing.Size(289, 49);
+            this.ctbChild03To06.TabIndex = 30;
+            // 
+            // ctbQuintuple
+            // 
+            this.ctbQuintuple.BackColor = System.Drawing.Color.White;
+            this.ctbQuintuple.ChangeTextBoxSize = true;
+            this.ctbQuintuple.CustomText = "Quintuple";
+            this.ctbQuintuple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbQuintuple.Location = new System.Drawing.Point(12, 278);
+            this.ctbQuintuple.Name = "ctbQuintuple";
+            this.ctbQuintuple.Password = false;
+            this.ctbQuintuple.Size = new System.Drawing.Size(289, 49);
+            this.ctbQuintuple.TabIndex = 29;
+            // 
+            // ctbQuadruple
+            // 
+            this.ctbQuadruple.BackColor = System.Drawing.Color.White;
+            this.ctbQuadruple.ChangeTextBoxSize = true;
+            this.ctbQuadruple.CustomText = "Quadruple";
+            this.ctbQuadruple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbQuadruple.Location = new System.Drawing.Point(12, 223);
+            this.ctbQuadruple.Name = "ctbQuadruple";
+            this.ctbQuadruple.Password = false;
+            this.ctbQuadruple.Size = new System.Drawing.Size(289, 49);
+            this.ctbQuadruple.TabIndex = 28;
+            // 
+            // ctbTriple
+            // 
+            this.ctbTriple.BackColor = System.Drawing.Color.White;
+            this.ctbTriple.ChangeTextBoxSize = true;
+            this.ctbTriple.CustomText = "Triple";
+            this.ctbTriple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbTriple.Location = new System.Drawing.Point(12, 168);
+            this.ctbTriple.Name = "ctbTriple";
+            this.ctbTriple.Password = false;
+            this.ctbTriple.Size = new System.Drawing.Size(289, 49);
+            this.ctbTriple.TabIndex = 27;
+            // 
+            // ctbSingle
+            // 
+            this.ctbSingle.BackColor = System.Drawing.Color.White;
+            this.ctbSingle.ChangeTextBoxSize = true;
+            this.ctbSingle.CustomText = "Single";
+            this.ctbSingle.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbSingle.Location = new System.Drawing.Point(12, 113);
+            this.ctbSingle.Name = "ctbSingle";
+            this.ctbSingle.Password = false;
+            this.ctbSingle.Size = new System.Drawing.Size(289, 49);
+            this.ctbSingle.TabIndex = 26;
+            // 
+            // ctbCouple
+            // 
+            this.ctbCouple.BackColor = System.Drawing.Color.White;
+            this.ctbCouple.ChangeTextBoxSize = true;
+            this.ctbCouple.CustomText = "Couple";
+            this.ctbCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbCouple.Location = new System.Drawing.Point(12, 58);
+            this.ctbCouple.Name = "ctbCouple";
+            this.ctbCouple.Password = false;
+            this.ctbCouple.Size = new System.Drawing.Size(289, 49);
+            this.ctbCouple.TabIndex = 25;
             // 
             // PriceFormView
             // 
@@ -184,6 +200,7 @@ namespace BenTechPatternMVP.View.Price.PriceForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ctbName);
             this.Controls.Add(this.ctbChild07To10);
             this.Controls.Add(this.ctbChild03To06);
             this.Controls.Add(this.ctbQuintuple);
@@ -214,5 +231,7 @@ namespace BenTechPatternMVP.View.Price.PriceForm
         private CustomTextBox.CustomTextBoxView ctbQuintuple;
         private CustomTextBox.CustomTextBoxView ctbChild03To06;
         private CustomTextBox.CustomTextBoxView ctbChild07To10;
+        private CustomTextBox.CustomTextBoxView ctbName;
+        private System.Windows.Forms.ColorDialog ColorDialogPriceFormView;
     }
 }

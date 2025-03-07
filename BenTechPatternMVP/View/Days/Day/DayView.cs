@@ -1,4 +1,5 @@
-﻿using BenTechPatternMVP.Presenter.Days;
+﻿using BenTechPatternMVP.DTO.Prices;
+using BenTechPatternMVP.Presenter.Days;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,16 @@ namespace BenTechPatternMVP.View.Day
     public partial class DayView : UserControl, IDayView
     {
         public DateTime _date;
+        public string _colorCode;
+        public event Action<IDayView> DayClicked;
         private readonly DayPresenter _presenter;
-        public DayView(DateTime date)
+        public DayView(DateTime date, string colorCode = "")
         {
             InitializeComponent();
             _date = date;
+            _colorCode = colorCode;
             _presenter = new DayPresenter(this);
+            panelDisplayColorCode.BackColor = ColorTranslator.FromHtml(colorCode);//arrumar colorCode
             AllowDropInCalendarDay();
         }
         public DateTime Date => _date;
@@ -30,11 +35,6 @@ namespace BenTechPatternMVP.View.Day
         public void DefineDayToLabel(string exactDay)
         {
             lblDays.Text = exactDay;
-        }
-
-        private void CalendarDaysView_Click(object sender, EventArgs e)
-        {
-            _presenter.ToggleSelectionState();
         }
         public void UpdateSelectionStatus(Color color)
         {
@@ -47,9 +47,33 @@ namespace BenTechPatternMVP.View.Day
             e.Effect = _presenter.GetDragDropEffect();
         }
 
-        private void CalendarDaysView_DragDrop(object sender, DragEventArgs e)
-        {
 
+        private void DayView_Click(object sender, EventArgs e)
+        {
+            _presenter.ToggleSelectionState();
+        }
+
+        private void DayView_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(PriceDTO)))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void DayView_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(PriceDTO)))
+            {
+                PriceDTO priceDTO = (PriceDTO)e.Data.GetData(typeof(PriceDTO));
+                if (priceDTO != null)
+                {
+                    panelDisplayColorCode.BackColor = ColorTranslator.FromHtml(priceDTO.ColorCode);
+                }
+            }
         }
     }
 }

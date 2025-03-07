@@ -9,6 +9,7 @@ namespace BenTechPatternMVP.DTO.Prices
     class PriceDTO : IPriceDTO
     {
         public string ColorCode { get; set; }
+        public string Name { get; set; }
         public double Double_value { get; set; }
         public double Single_value { get; set; }
         public double Triple_value { get; set; }

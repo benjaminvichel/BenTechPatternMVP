@@ -65,6 +65,9 @@ namespace BenTechPatternMVP.View.Day
             this.MinimumSize = new System.Drawing.Size(132, 112);
             this.Name = "DayView";
             this.Size = new System.Drawing.Size(128, 108);
+            this.Click += new System.EventHandler(this.DayView_Click);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.DayView_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.DayView_DragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

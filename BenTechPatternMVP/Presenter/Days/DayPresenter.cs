@@ -31,7 +31,15 @@ namespace BenTechPatternMVP.Presenter.Days
         public void ToggleSelectionState()
         {
             _model.IsSelected = !_model.IsSelected;
-            Color color = _model.IsSelected ? Color.Green : Color.Gray;
+            Color color;
+            if (_model.IsSelected)
+            {
+                color = Color.Green;
+            }
+            else
+            {
+                color = Color.Gray;
+            }
             _view.UpdateSelectionStatus(color);
         }
         public void VerifyDragType()

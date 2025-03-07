@@ -18,6 +18,7 @@ namespace BenTechPatternMVP.View.Calendar
         public event EventHandler<DateTime> TimePickerCalendarValueChanged;
         public event EventHandler<DateTime> DateTimePickerCalendarCloseUp;
         public event Action CreateAllPredefinedPrices;
+        public event Action CreateNewPrice;
         public CalendarView()
         {
             InitializeComponent();
@@ -84,5 +85,9 @@ namespace BenTechPatternMVP.View.Calendar
             fpanelPredefinedPricesInner.Controls.Add(form);
         }
 
+        private void ibtnCreateNewPredefinedValues_Click(object sender, EventArgs e)
+        {
+            CreateNewPrice.Invoke();
+        }
     }
 }

@@ -33,16 +33,70 @@ namespace BenTechPatternMVP.Repository.Prices
                     return await _httpClient.SendAsync(requestMessage);
                 }
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                var errorResponse = new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError)
+                throw new Exception("Falha na comunicação com a API ao obter preços.", ex);
+            }
+        }
+        public async Task<HttpResponseMessage> UpdatePriceAsync(HttpContent content)
+        {
+            string apiUrl = "https://localhost:7033/api/price";
+            try
+            {
+                using (var requestMessage = new HttpRequestMessage(HttpMethod.Put, apiUrl))
                 {
-                    Content = new StringContent($"Erro na comunicação com a API: {ex.Message}")
-                };
-                return errorResponse;  // Retorna a resposta com o erro
+                    requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", UserContext.Current.Token);
+                    requestMessage.Content = content;
+                    return await _httpClient.SendAsync(requestMessage);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao atualizar preço.", ex);
+            }
+        }
+
+        public async Task DeletePriceAsync(string colorCode)
+        {
+            string apiUrl = $"https://localhost:7033/api/price/{colorCode}";
+
+            try
+            {
+                using (var requestMessage = new HttpRequestMessage(HttpMethod.Delete, apiUrl))
+                {
+                    requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", UserContext.Current.Token);
+                    await _httpClient.SendAsync(requestMessage);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao excluir preço.", ex);
             }
 
-
         }
+
+        public async Task<HttpResponseMessage> CreateNewPriceAsync(HttpContent content)
+        {
+            string apiUrl = "https://localhost:7033/api/prices";
+
+            try
+            {
+                using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiUrl))
+                {
+                    requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", UserContext.Current.Token);
+                    requestMessage.Content = content;
+                    return await _httpClient.SendAsync(requestMessage);
+                }
+            }
+            catch (HttpRequestException ex) // Captura erro de rede/API
+            {
+                throw new Exception("Falha na comunicação com a API ao criar preço.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao enviar requisição para criar preço", ex);
+            }
+        }
+
     }
 }
