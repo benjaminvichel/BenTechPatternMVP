@@ -74,7 +74,7 @@
     <Compile Include="Model\CustomTextBox\ICustomTextBoxModel.cs" />
     <Compile Include="Model\Days\CalendarDay\CalendarDayModel.cs" />
     <Compile Include="Model\Days\CalendarDay\ICalendarDayModel.cs" />
-    <Compile Include="Model\Days\DateDTO\DateDTO.cs" />
+    <Compile Include="DTO\DateDTO\DateDTO.cs" />
     <Compile Include="Presenter\Calendar\CalendarPresenter.cs" />
     <Compile Include="Presenter\Calendar\ICalendarPresenter.cs" />
     <Compile Include="Presenter\Price\PriceController\PriceControlPresenter.cs" />

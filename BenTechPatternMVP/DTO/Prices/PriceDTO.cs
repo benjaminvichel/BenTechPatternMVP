@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BenTechPatternMVP.DTO.Prices
 {
-    class PriceDTO : IPriceDTO
+    public class PriceDTO : IPriceDTO
     {
         public string ColorCode { get; set; }
         public string Name { get; set; }

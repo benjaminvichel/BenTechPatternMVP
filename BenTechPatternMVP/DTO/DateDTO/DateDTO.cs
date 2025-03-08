@@ -8,7 +8,7 @@ namespace BenTechPatternMVP.Model.Days.DateDTO
 {
     class DateDTO
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public string ColorCode { get; set; }
     }
 }

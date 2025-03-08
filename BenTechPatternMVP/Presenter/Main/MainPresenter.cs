@@ -2,6 +2,7 @@
 using BenTechPatternMVP.Model.Days.CalendarDay;
 using BenTechPatternMVP.Model.Days.DateDTO;
 using BenTechPatternMVP.Presenter.Calendar;
+using BenTechPatternMVP.Presenter.Days;
 using BenTechPatternMVP.Presenter.Home;
 using BenTechPatternMVP.Presenter.Price.PriceForm;
 using BenTechPatternMVP.Presenter.PriceControl;
@@ -26,6 +27,7 @@ namespace BenTechPatternMVP.Presenter.Main
         private readonly PriceControlPresenter _priceControlPresenter;
         private readonly List<PriceControlPresenter> _priceControlPresenters = new List<PriceControlPresenter>();
         private readonly List<DateDTO> _listDateDTO = new List<DateDTO>();
+        private List<DayPresenter> _DayPresentersList = new List<DayPresenter>();
 
 
 
@@ -51,6 +53,7 @@ namespace BenTechPatternMVP.Presenter.Main
             _priceControlPresenter.PricesRetrieved += OnPricesRetrieved;
             _calendarPresenter.CreateNewPriceView += OnCreateNewPriceView;
             _calendarPresenter.DatesInRange += OnDatesInRange;
+    
 
             _homePresenter.ShowHomeView();
 
@@ -74,15 +77,21 @@ namespace BenTechPatternMVP.Presenter.Main
             string colorCode ="";
             foreach (var item in _listDateDTO)
             {
-                if (date == item.Date)
+                if (date ==DateTime.Parse(item.Date))
                 {
                     colorCode = item.ColorCode;
                 }
             }
-            var ucDay = new DayView(date,colorCode);
-            string exactDay = date.ToString("dd");
-            ucDay.DefineDayToLabel(exactDay);
-            _calendarPresenter.AddDaysInView(ucDay);
+            DayPresenter dayPresenter = new DayPresenter(date,colorCode);
+
+            dayPresenter.UpdatePriceInAllDayViews += OnUpdatePriceInAllDayViews;
+            _DayPresentersList.Add(dayPresenter);
+            _calendarPresenter.AddDaysInView((Control)dayPresenter.GetViewInstance());
+        }
+        private void OnUpdatePriceInAllDayViews(object sender,PriceDTO priceDTO) {
+            foreach (var dayPresenter in _DayPresentersList) {
+                dayPresenter.UpdatePrice(priceDTO);
+            }
         }
         private void OnDayEmptyCreated()
         {
@@ -90,6 +99,11 @@ namespace BenTechPatternMVP.Presenter.Main
             _calendarPresenter.AddDayEmptyInView(emptyDay);
         }
 
+        //Tell all days in list to verify if IsSelceted is true.
+        //
+        private void OnDragDropPriceInAllSelectedDays(object sender,PriceDTO priceDTO) { 
+        
+        }
 
         private void OnDatabaseClicked(object sender, EventArgs e)
         {

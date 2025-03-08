@@ -16,41 +16,33 @@ namespace BenTechPatternMVP.View.Day
     {
         public DateTime _date;
         public string _colorCode;
-        public event Action<IDayView> DayClicked;
-        private readonly DayPresenter _presenter;
-        public DayView(DateTime date, string colorCode = "")
+
+        public event Action DayClicked;
+        public event EventHandler<PriceDTO> DragDropOccurred;
+        public DayView()
         {
             InitializeComponent();
-            _date = date;
-            _colorCode = colorCode;
-            _presenter = new DayPresenter(this);
-            panelDisplayColorCode.BackColor = ColorTranslator.FromHtml(colorCode);//arrumar colorCode
-            AllowDropInCalendarDay();
         }
         public DateTime Date => _date;
-        public void AllowDropInCalendarDay()
+        public void AllowDropInCalendarDay(bool status)
         {
-            this.AllowDrop = _presenter.AllowDrop();
+            this.AllowDrop = status;
         }
         public void DefineDayToLabel(string exactDay)
         {
-            lblDays.Text = exactDay;
+            lblDay.Text = exactDay;
+        }
+        public void DefineColorCodeToDay(string color) {
+            panelDisplayColorCode.BackColor =ColorTranslator.FromHtml(color);
         }
         public void UpdateSelectionStatus(Color color)
         {
             this.BackColor = color;
         }
 
-        private void CalendarDaysView_DragEnter(object sender, DragEventArgs e)
-        {
-            //_presenter.VerifyDragType(e.Data);  not implemented
-            e.Effect = _presenter.GetDragDropEffect();
-        }
-
-
         private void DayView_Click(object sender, EventArgs e)
         {
-            _presenter.ToggleSelectionState();
+            DayClicked.Invoke();
         }
 
         private void DayView_DragEnter(object sender, DragEventArgs e)
@@ -71,7 +63,7 @@ namespace BenTechPatternMVP.View.Day
                 PriceDTO priceDTO = (PriceDTO)e.Data.GetData(typeof(PriceDTO));
                 if (priceDTO != null)
                 {
-                    panelDisplayColorCode.BackColor = ColorTranslator.FromHtml(priceDTO.ColorCode);
+                    DragDropOccurred.Invoke(this,priceDTO);
                 }
             }
         }

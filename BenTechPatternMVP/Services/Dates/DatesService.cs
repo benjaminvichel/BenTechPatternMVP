@@ -47,7 +47,69 @@ namespace BenTechPatternMVP.Services.Dates
                 throw new Exception("Erro inesperado em DatesService DatesInRange", ex);
             }
         }
+        public async Task CreateDate(string date, string coloCode)
+        {
+            try
+            {
+                var dateDTO = new DateDTO
+                {
+                    Date = date,
+                    ColorCode = coloCode
+                };
+                var jsonContent = JsonConvert.SerializeObject(dateDTO);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _repository.PostDate(content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao criar Date: {errorMessage}");
+                }
+            }
+
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao criar Date", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao criar date", ex);
+            }
+        }
+
+
+        public async Task UpdateDate(string date, string coloCode)
+        {
+            try
+            {
+                var dateDTO = new DateDTO
+                {
+                    Date = date,
+                    ColorCode = coloCode
+                };
+                var jsonContent = JsonConvert.SerializeObject(dateDTO);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _repository.PutDate(content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao atualizar Date: {errorMessage}");
+                }
+            }
+
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Falha na comunicação com a API ao atualizar Date", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao atualizar date", ex);
+            }
+        }
     }
 
 }
+
+
 
