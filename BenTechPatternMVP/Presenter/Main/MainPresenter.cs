@@ -2,7 +2,9 @@
 using BenTechPatternMVP.Model.Days.CalendarDay;
 using BenTechPatternMVP.Model.Days.DateDTO;
 using BenTechPatternMVP.Presenter.Calendar;
+using BenTechPatternMVP.Presenter.DailyCalculator;
 using BenTechPatternMVP.Presenter.Days;
+using BenTechPatternMVP.Presenter.Employee;
 using BenTechPatternMVP.Presenter.Home;
 using BenTechPatternMVP.Presenter.Price.PriceForm;
 using BenTechPatternMVP.Presenter.PriceControl;
@@ -23,6 +25,8 @@ namespace BenTechPatternMVP.Presenter.Main
 
         private readonly IController _controller;
         private readonly HomePresenter _homePresenter;
+        private readonly DailyCalculatorPresenter _dailyCalculatorPresenter;
+        private readonly EmployeePresenter _employeePresenter;
         private readonly ICalendarPresenter _calendarPresenter;
         private readonly PriceControlPresenter _priceControlPresenter;
         private readonly List<PriceControlPresenter> _priceControlPresenters = new List<PriceControlPresenter>();
@@ -38,25 +42,28 @@ namespace BenTechPatternMVP.Presenter.Main
             _homePresenter.ShowHomeView();
 
         }
-        public MainPresenter(IController controller, HomePresenter homePresenter,
+        public MainPresenter(IController controller, HomePresenter homePresenter, DailyCalculatorPresenter dailyCalculatorPresenter, EmployeePresenter employeePresenter,
          ICalendarPresenter calendarPresenter, PriceControlPresenter priceControlPresenter)
         {
             _controller = controller;
             _homePresenter = homePresenter;
+            _dailyCalculatorPresenter = dailyCalculatorPresenter;
+            _employeePresenter = employeePresenter;
             _calendarPresenter = calendarPresenter;
             _priceControlPresenter = priceControlPresenter;
 
-
+            _homePresenter.EmployeesClicked += OnEmployeesClicked;
             _homePresenter.DataBaseClicked += OnDatabaseClicked;
+            _homePresenter.PricesCalculator += OnPricesCalculator;
             _calendarPresenter.DayCreated += OnDayCreated;
             _calendarPresenter.DayEmptyCreated += OnDayEmptyCreated;
             _priceControlPresenter.PricesRetrieved += OnPricesRetrieved;
             _calendarPresenter.CreateNewPriceView += OnCreateNewPriceView;
             _calendarPresenter.DatesInRange += OnDatesInRange;
-    
+
+
 
             _homePresenter.ShowHomeView();
-
         }
 
         private void OnDatesInRange(object sender, List<DateDTO> listDates)
@@ -74,22 +81,24 @@ namespace BenTechPatternMVP.Presenter.Main
 
         private void OnDayCreated(DateTime date)
         {
-            string colorCode ="";
+            string colorCode = "";
             foreach (var item in _listDateDTO)
             {
-                if (date ==DateTime.Parse(item.Date))
+                if (date == DateTime.Parse(item.Date))
                 {
                     colorCode = item.ColorCode;
                 }
             }
-            DayPresenter dayPresenter = new DayPresenter(date,colorCode);
+            DayPresenter dayPresenter = new DayPresenter(date, colorCode);
 
             dayPresenter.UpdatePriceInAllDayViews += OnUpdatePriceInAllDayViews;
             _DayPresentersList.Add(dayPresenter);
             _calendarPresenter.AddDaysInView((Control)dayPresenter.GetViewInstance());
         }
-        private void OnUpdatePriceInAllDayViews(object sender,PriceDTO priceDTO) {
-            foreach (var dayPresenter in _DayPresentersList) {
+        private void OnUpdatePriceInAllDayViews(object sender, PriceDTO priceDTO)
+        {
+            foreach (var dayPresenter in _DayPresentersList)
+            {
                 dayPresenter.UpdatePrice(priceDTO);
             }
         }
@@ -98,21 +107,21 @@ namespace BenTechPatternMVP.Presenter.Main
             var emptyDay = new DayEmptyView();
             _calendarPresenter.AddDayEmptyInView(emptyDay);
         }
-
-        //Tell all days in list to verify if IsSelceted is true.
-        //
-        private void OnDragDropPriceInAllSelectedDays(object sender,PriceDTO priceDTO) { 
-        
+        private void OnEmployeesClicked()
+        {
+            _homePresenter.OpenChildView((Form)_employeePresenter.EmployeeView);
         }
-
-        private void OnDatabaseClicked(object sender, EventArgs e)
+        private void OnDatabaseClicked()
         {
             _calendarPresenter.ResetAllPanels();
             _homePresenter.OpenChildView((Form)_calendarPresenter.CalendarView);
             _calendarPresenter.CreateDays(); //here because this way it will not call when user is not admin  
             _priceControlPresenter.GetAllPrices();
         }
-
+        private void OnPricesCalculator()
+        {
+            _homePresenter.OpenChildView((Form)_dailyCalculatorPresenter.DailyCalculatorView);
+        }
         private void OnPricesRetrieved(object sender, List<IPriceDTO> list)
         {
             foreach (var price in list)
@@ -135,7 +144,7 @@ namespace BenTechPatternMVP.Presenter.Main
         }
         private void OnResetDatabase()
         {
-            OnDatabaseClicked(this, EventArgs.Empty);
+            OnDatabaseClicked();
         }
         private void OnCreateNewPriceView()
         {

@@ -13,13 +13,17 @@ namespace BenTechPatternMVP.Presenter.Home
     {
         private readonly IHomeView _view;
 
-        public event EventHandler DataBaseClicked;
+        public event Action EmployeesClicked;
+        public event Action DataBaseClicked;
+        public event Action PricesCalculator;
         public HomePresenter(IHomeView view)
         {
             _view = view;
 
-            //events. escuta evento no view e repassa para o mainPresenter
-            _view.DataBaseClicked += (sender, args) => DataBaseClicked?.Invoke(sender, args);
+            //events. Escuta evento no view e repassa para o mainPresenter
+            _view.EmployeesClicked += () => EmployeesClicked.Invoke();
+            _view.DataBaseClicked += () => DataBaseClicked?.Invoke();
+            _view.PricesCalculatorClicked += () => PricesCalculator.Invoke();
         }
 
         public void ShowHomeView()

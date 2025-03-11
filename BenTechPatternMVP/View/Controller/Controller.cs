@@ -16,6 +16,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BenTechPatternMVP.Presenter.PriceControl;
+using BenTechPatternMVP.View.Employee;
+using BenTechPatternMVP.Presenter.Employee;
+using BenTechPatternMVP.View.DailyCalculator;
+using BenTechPatternMVP.Presenter.DailyCalculator;
 
 namespace BenTechPatternMVP.View.Controller
 {
@@ -37,14 +41,18 @@ namespace BenTechPatternMVP.View.Controller
             if (UserContext.Current.IsAdmin)
             {
                 IHomeView homeView = new HomeView();
+                IDailyCalculatorView dailyCalculatorView = new DailyCalculatorView();
+                IEmployeeView employeeView = new EmployeeView();
                 ICalendarView calendarView = new CalendarView();
                 IPriceControlView priceControl = new PriceControlView();
 
                 HomePresenter homePresenter = new HomePresenter(homeView);
+                DailyCalculatorPresenter dailyCalculatorPresenter = new DailyCalculatorPresenter(dailyCalculatorView);
+                EmployeePresenter employeePresenter = new EmployeePresenter(employeeView);
                 ICalendarPresenter calendarPresenter = new CalendarPresenter(calendarView);
                 PriceControlPresenter priceControlPresenter = new PriceControlPresenter(priceControl);
 
-                MainPresenter mainPresenter = new MainPresenter(this, homePresenter, calendarPresenter, priceControlPresenter);
+                MainPresenter mainPresenter = new MainPresenter(this, homePresenter, dailyCalculatorPresenter, employeePresenter, calendarPresenter, priceControlPresenter);
             }
             else
             {

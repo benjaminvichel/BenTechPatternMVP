@@ -167,6 +167,7 @@ namespace BenTechPatternMVP.View.Home
             this.ibtnEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtnEmployees.UseVisualStyleBackColor = true;
             this.ibtnEmployees.Visible = false;
+            this.ibtnEmployees.Click += new System.EventHandler(this.ibtnEmployees_Click);
             // 
             // ibtnPricesCalculator
             // 
@@ -189,6 +190,7 @@ namespace BenTechPatternMVP.View.Home
             this.ibtnPricesCalculator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ibtnPricesCalculator.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtnPricesCalculator.UseVisualStyleBackColor = true;
+            this.ibtnPricesCalculator.Click += new System.EventHandler(this.ibtnPricesCalculator_Click);
             // 
             // panelHome
             // 

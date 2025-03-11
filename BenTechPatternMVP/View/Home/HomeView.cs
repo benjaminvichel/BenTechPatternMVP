@@ -7,8 +7,10 @@ namespace BenTechPatternMVP.View.Home
 {
     public partial class HomeView : Form, IHomeView
     {
+        public event Action EmployeesClicked;
+        public event Action DataBaseClicked;
+        public event Action PricesCalculatorClicked;
 
-        public event EventHandler DataBaseClicked;
 
         private Form _currentChildForm;
         public HomeView()
@@ -38,10 +40,13 @@ namespace BenTechPatternMVP.View.Home
         {
             this.Show();
         }
-
+        private void ibtnEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeesClicked.Invoke();
+        }
         private void ibtnDataBase_Click(object sender, EventArgs e)
         {
-            DataBaseClicked?.Invoke(this, EventArgs.Empty);
+            DataBaseClicked?.Invoke();
         }
 
         public void OpenChildView(Form childView)
@@ -55,6 +60,11 @@ namespace BenTechPatternMVP.View.Home
             panelDesktop.Tag = childView;
             childView.BringToFront();
             childView.Show();
+        }
+
+        private void ibtnPricesCalculator_Click(object sender, EventArgs e)
+        {
+            PricesCalculatorClicked.Invoke();
         }
     }
 }

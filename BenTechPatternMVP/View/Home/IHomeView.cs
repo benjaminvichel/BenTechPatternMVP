@@ -9,7 +9,9 @@ namespace BenTechPatternMVP.View.Home
 {
     public interface IHomeView
     {
-        event EventHandler DataBaseClicked;
+        event Action EmployeesClicked;
+        event Action DataBaseClicked;
+        event Action PricesCalculatorClicked;
         void ShowView();
         void OpenChildView(Form childView);
     }
