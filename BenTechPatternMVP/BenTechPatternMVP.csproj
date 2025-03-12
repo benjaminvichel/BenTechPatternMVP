@@ -61,6 +61,7 @@
     <Compile Include="DTO\Employee\EmployeeUpdateDTO.cs" />
     <Compile Include="DTO\Login\ILoginDTO.cs" />
     <Compile Include="DTO\Login\LoginDTO.cs" />
+    <Compile Include="DTO\Prices\DailyAndTotalRoomPrices.cs" />
     <Compile Include="DTO\Prices\DefaultPriceDTO.cs" />
     <Compile Include="DTO\Prices\IPriceDTO.cs" />
     <Compile Include="DTO\Prices\PriceDTO.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Model\Calendar\ICalendarModel.cs" />
     <Compile Include="Model\CustomTextBox\CustomTextBoxModel.cs" />
     <Compile Include="Model\CustomTextBox\ICustomTextBoxModel.cs" />
+    <Compile Include="Model\DailyCalculator\DailyCalculatorModel.cs" />
     <Compile Include="Model\Days\CalendarDay\CalendarDayModel.cs" />
     <Compile Include="Model\Days\CalendarDay\ICalendarDayModel.cs" />
     <Compile Include="DTO\DateDTO\DateDTO.cs" />

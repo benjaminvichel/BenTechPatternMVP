@@ -31,8 +31,8 @@ namespace BenTechPatternMVP.View.DailyCalculator
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DailyCalculatorView));
             this.panelTop = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtEndDate = new System.Windows.Forms.DateTimePicker();
             this.btnCalculatePrices = new System.Windows.Forms.Button();
             this.lblNumberOfDays = new System.Windows.Forms.Label();
             this.txtNumbOfDays = new System.Windows.Forms.TextBox();
@@ -50,20 +50,20 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.lblChild07To10 = new System.Windows.Forms.Label();
             this.cbChild07To10 = new System.Windows.Forms.ComboBox();
             this.cbSingleCustom = new System.Windows.Forms.ComboBox();
-            this.ctbDailyRateCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbDailyRateLuxuryCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbDailyRateQuadruple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueQuadruple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueQuintuple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbDailyRateQuintuple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueTriple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueSingle = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueLuxuryCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalValueCouple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbDailyRateTriple = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbDailyRateSingle = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
-            this.ctbTotalPriceCustom = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
             this.ctbDailyPriceCustom = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctbTotalPriceCustom = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_single_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_triple_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_double_value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_double_luxury_value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_single_value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_triple_value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_quintuple_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_quintuple_value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_quadruple_Value = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_quadruple_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_double_luxury_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
+            this.ctb_double_value_daily = new BenTechPatternMVP.View.CustomTextBox.CustomTextBoxView();
             this.panelTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.PanelRight.SuspendLayout();
@@ -71,8 +71,8 @@ namespace BenTechPatternMVP.View.DailyCalculator
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.dateTimePicker1);
-            this.panelTop.Controls.Add(this.dateTimePicker2);
+            this.panelTop.Controls.Add(this.dtStartDate);
+            this.panelTop.Controls.Add(this.dtEndDate);
             this.panelTop.Controls.Add(this.btnCalculatePrices);
             this.panelTop.Controls.Add(this.lblNumberOfDays);
             this.panelTop.Controls.Add(this.txtNumbOfDays);
@@ -84,22 +84,22 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.panelTop.Size = new System.Drawing.Size(1168, 100);
             this.panelTop.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // dtStartDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.White;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(408, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePicker1.TabIndex = 51;
+            this.dtStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtStartDate.CalendarTitleBackColor = System.Drawing.Color.White;
+            this.dtStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtStartDate.Location = new System.Drawing.Point(408, 19);
+            this.dtStartDate.Name = "dtStartDate";
+            this.dtStartDate.Size = new System.Drawing.Size(228, 20);
+            this.dtStartDate.TabIndex = 51;
             // 
-            // dateTimePicker2
+            // dtEndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(657, 18);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePicker2.TabIndex = 52;
+            this.dtEndDate.Location = new System.Drawing.Point(657, 18);
+            this.dtEndDate.Name = "dtEndDate";
+            this.dtEndDate.Size = new System.Drawing.Size(228, 20);
+            this.dtEndDate.TabIndex = 52;
             // 
             // btnCalculatePrices
             // 
@@ -117,6 +117,7 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.btnCalculatePrices.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCalculatePrices.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCalculatePrices.UseVisualStyleBackColor = false;
+            this.btnCalculatePrices.Click += new System.EventHandler(this.btnCalculatePrices_Click);
             // 
             // lblNumberOfDays
             // 
@@ -172,18 +173,18 @@ namespace BenTechPatternMVP.View.DailyCalculator
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.panelLeft.Controls.Add(this.ctbDailyRateSingle);
-            this.panelLeft.Controls.Add(this.ctbDailyRateTriple);
-            this.panelLeft.Controls.Add(this.ctbTotalValueCouple);
-            this.panelLeft.Controls.Add(this.ctbTotalValueLuxuryCouple);
-            this.panelLeft.Controls.Add(this.ctbTotalValueSingle);
-            this.panelLeft.Controls.Add(this.ctbTotalValueTriple);
-            this.panelLeft.Controls.Add(this.ctbDailyRateQuintuple);
-            this.panelLeft.Controls.Add(this.ctbTotalValueQuintuple);
-            this.panelLeft.Controls.Add(this.ctbTotalValueQuadruple);
-            this.panelLeft.Controls.Add(this.ctbDailyRateQuadruple);
-            this.panelLeft.Controls.Add(this.ctbDailyRateLuxuryCouple);
-            this.panelLeft.Controls.Add(this.ctbDailyRateCouple);
+            this.panelLeft.Controls.Add(this.ctb_single_value_daily);
+            this.panelLeft.Controls.Add(this.ctb_triple_value_daily);
+            this.panelLeft.Controls.Add(this.ctb_double_value);
+            this.panelLeft.Controls.Add(this.ctb_double_luxury_value);
+            this.panelLeft.Controls.Add(this.ctb_single_value);
+            this.panelLeft.Controls.Add(this.ctb_triple_value);
+            this.panelLeft.Controls.Add(this.ctb_quintuple_value_daily);
+            this.panelLeft.Controls.Add(this.ctb_quintuple_value);
+            this.panelLeft.Controls.Add(this.ctb_quadruple_Value);
+            this.panelLeft.Controls.Add(this.ctb_quadruple_value_daily);
+            this.panelLeft.Controls.Add(this.ctb_double_luxury_value_daily);
+            this.panelLeft.Controls.Add(this.ctb_double_value_daily);
             this.panelLeft.Controls.Add(this.ibtnShowEmail);
             this.panelLeft.Controls.Add(this.lblTotalPrice);
             this.panelLeft.Controls.Add(this.lblDailyPrice);
@@ -249,7 +250,7 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.PanelRight.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelRight.Location = new System.Drawing.Point(646, 104);
             this.PanelRight.Name = "PanelRight";
-            this.PanelRight.Size = new System.Drawing.Size(534, 654);
+            this.PanelRight.Size = new System.Drawing.Size(522, 654);
             this.PanelRight.TabIndex = 54;
             // 
             // cbChild03To06
@@ -346,149 +347,17 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.cbSingleCustom.Size = new System.Drawing.Size(73, 21);
             this.cbSingleCustom.TabIndex = 25;
             // 
-            // ctbDailyRateCouple
+            // ctbDailyPriceCustom
             // 
-            this.ctbDailyRateCouple.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateCouple.ChangeTextBoxSize = true;
-            this.ctbDailyRateCouple.CustomText = "Casal";
-            this.ctbDailyRateCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateCouple.Location = new System.Drawing.Point(12, 55);
-            this.ctbDailyRateCouple.Name = "ctbDailyRateCouple";
-            this.ctbDailyRateCouple.Password = false;
-            this.ctbDailyRateCouple.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateCouple.TabIndex = 63;
-            // 
-            // ctbDailyRateLuxuryCouple
-            // 
-            this.ctbDailyRateLuxuryCouple.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateLuxuryCouple.ChangeTextBoxSize = true;
-            this.ctbDailyRateLuxuryCouple.CustomText = "Casal Luxo";
-            this.ctbDailyRateLuxuryCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateLuxuryCouple.Location = new System.Drawing.Point(12, 110);
-            this.ctbDailyRateLuxuryCouple.Name = "ctbDailyRateLuxuryCouple";
-            this.ctbDailyRateLuxuryCouple.Password = false;
-            this.ctbDailyRateLuxuryCouple.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateLuxuryCouple.TabIndex = 64;
-            // 
-            // ctbDailyRateQuadruple
-            // 
-            this.ctbDailyRateQuadruple.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateQuadruple.ChangeTextBoxSize = true;
-            this.ctbDailyRateQuadruple.CustomText = "Quadruplo";
-            this.ctbDailyRateQuadruple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateQuadruple.Location = new System.Drawing.Point(12, 275);
-            this.ctbDailyRateQuadruple.Name = "ctbDailyRateQuadruple";
-            this.ctbDailyRateQuadruple.Password = false;
-            this.ctbDailyRateQuadruple.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateQuadruple.TabIndex = 65;
-            // 
-            // ctbTotalValueQuadruple
-            // 
-            this.ctbTotalValueQuadruple.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueQuadruple.ChangeTextBoxSize = false;
-            this.ctbTotalValueQuadruple.CustomText = "";
-            this.ctbTotalValueQuadruple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueQuadruple.Location = new System.Drawing.Point(335, 275);
-            this.ctbTotalValueQuadruple.Name = "ctbTotalValueQuadruple";
-            this.ctbTotalValueQuadruple.Password = false;
-            this.ctbTotalValueQuadruple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueQuadruple.TabIndex = 66;
-            // 
-            // ctbTotalValueQuintuple
-            // 
-            this.ctbTotalValueQuintuple.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueQuintuple.ChangeTextBoxSize = false;
-            this.ctbTotalValueQuintuple.CustomText = "";
-            this.ctbTotalValueQuintuple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueQuintuple.Location = new System.Drawing.Point(335, 330);
-            this.ctbTotalValueQuintuple.Name = "ctbTotalValueQuintuple";
-            this.ctbTotalValueQuintuple.Password = false;
-            this.ctbTotalValueQuintuple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueQuintuple.TabIndex = 67;
-            // 
-            // ctbDailyRateQuintuple
-            // 
-            this.ctbDailyRateQuintuple.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateQuintuple.ChangeTextBoxSize = true;
-            this.ctbDailyRateQuintuple.CustomText = "Quintuplo";
-            this.ctbDailyRateQuintuple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateQuintuple.Location = new System.Drawing.Point(12, 330);
-            this.ctbDailyRateQuintuple.Name = "ctbDailyRateQuintuple";
-            this.ctbDailyRateQuintuple.Password = false;
-            this.ctbDailyRateQuintuple.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateQuintuple.TabIndex = 68;
-            // 
-            // ctbTotalValueTriple
-            // 
-            this.ctbTotalValueTriple.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueTriple.ChangeTextBoxSize = false;
-            this.ctbTotalValueTriple.CustomText = "";
-            this.ctbTotalValueTriple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueTriple.Location = new System.Drawing.Point(335, 220);
-            this.ctbTotalValueTriple.Name = "ctbTotalValueTriple";
-            this.ctbTotalValueTriple.Password = false;
-            this.ctbTotalValueTriple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueTriple.TabIndex = 69;
-            // 
-            // ctbTotalValueSingle
-            // 
-            this.ctbTotalValueSingle.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueSingle.ChangeTextBoxSize = false;
-            this.ctbTotalValueSingle.CustomText = "";
-            this.ctbTotalValueSingle.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueSingle.Location = new System.Drawing.Point(335, 165);
-            this.ctbTotalValueSingle.Name = "ctbTotalValueSingle";
-            this.ctbTotalValueSingle.Password = false;
-            this.ctbTotalValueSingle.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueSingle.TabIndex = 70;
-            // 
-            // ctbTotalValueLuxuryCouple
-            // 
-            this.ctbTotalValueLuxuryCouple.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueLuxuryCouple.ChangeTextBoxSize = false;
-            this.ctbTotalValueLuxuryCouple.CustomText = "";
-            this.ctbTotalValueLuxuryCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueLuxuryCouple.Location = new System.Drawing.Point(335, 110);
-            this.ctbTotalValueLuxuryCouple.Name = "ctbTotalValueLuxuryCouple";
-            this.ctbTotalValueLuxuryCouple.Password = false;
-            this.ctbTotalValueLuxuryCouple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueLuxuryCouple.TabIndex = 71;
-            // 
-            // ctbTotalValueCouple
-            // 
-            this.ctbTotalValueCouple.BackColor = System.Drawing.Color.White;
-            this.ctbTotalValueCouple.ChangeTextBoxSize = false;
-            this.ctbTotalValueCouple.CustomText = "";
-            this.ctbTotalValueCouple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbTotalValueCouple.Location = new System.Drawing.Point(335, 55);
-            this.ctbTotalValueCouple.Name = "ctbTotalValueCouple";
-            this.ctbTotalValueCouple.Password = false;
-            this.ctbTotalValueCouple.Size = new System.Drawing.Size(289, 49);
-            this.ctbTotalValueCouple.TabIndex = 72;
-            // 
-            // ctbDailyRateTriple
-            // 
-            this.ctbDailyRateTriple.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateTriple.ChangeTextBoxSize = true;
-            this.ctbDailyRateTriple.CustomText = "Triplo";
-            this.ctbDailyRateTriple.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateTriple.Location = new System.Drawing.Point(12, 220);
-            this.ctbDailyRateTriple.Name = "ctbDailyRateTriple";
-            this.ctbDailyRateTriple.Password = false;
-            this.ctbDailyRateTriple.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateTriple.TabIndex = 73;
-            // 
-            // ctbDailyRateSingle
-            // 
-            this.ctbDailyRateSingle.BackColor = System.Drawing.Color.White;
-            this.ctbDailyRateSingle.ChangeTextBoxSize = true;
-            this.ctbDailyRateSingle.CustomText = "Solteiro";
-            this.ctbDailyRateSingle.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyRateSingle.Location = new System.Drawing.Point(12, 165);
-            this.ctbDailyRateSingle.Name = "ctbDailyRateSingle";
-            this.ctbDailyRateSingle.Password = false;
-            this.ctbDailyRateSingle.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyRateSingle.TabIndex = 74;
+            this.ctbDailyPriceCustom.BackColor = System.Drawing.Color.White;
+            this.ctbDailyPriceCustom.ChangeTextBoxSize = true;
+            this.ctbDailyPriceCustom.CustomText = "Diária";
+            this.ctbDailyPriceCustom.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctbDailyPriceCustom.Location = new System.Drawing.Point(100, 124);
+            this.ctbDailyPriceCustom.Name = "ctbDailyPriceCustom";
+            this.ctbDailyPriceCustom.Password = false;
+            this.ctbDailyPriceCustom.Size = new System.Drawing.Size(289, 49);
+            this.ctbDailyPriceCustom.TabIndex = 65;
             // 
             // ctbTotalPriceCustom
             // 
@@ -502,17 +371,149 @@ namespace BenTechPatternMVP.View.DailyCalculator
             this.ctbTotalPriceCustom.Size = new System.Drawing.Size(289, 49);
             this.ctbTotalPriceCustom.TabIndex = 64;
             // 
-            // ctbDailyPriceCustom
+            // ctb_single_value_daily
             // 
-            this.ctbDailyPriceCustom.BackColor = System.Drawing.Color.White;
-            this.ctbDailyPriceCustom.ChangeTextBoxSize = true;
-            this.ctbDailyPriceCustom.CustomText = "Diária";
-            this.ctbDailyPriceCustom.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ctbDailyPriceCustom.Location = new System.Drawing.Point(100, 124);
-            this.ctbDailyPriceCustom.Name = "ctbDailyPriceCustom";
-            this.ctbDailyPriceCustom.Password = false;
-            this.ctbDailyPriceCustom.Size = new System.Drawing.Size(289, 49);
-            this.ctbDailyPriceCustom.TabIndex = 65;
+            this.ctb_single_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_single_value_daily.ChangeTextBoxSize = true;
+            this.ctb_single_value_daily.CustomText = "Solteiro";
+            this.ctb_single_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_single_value_daily.Location = new System.Drawing.Point(12, 165);
+            this.ctb_single_value_daily.Name = "ctb_single_value_daily";
+            this.ctb_single_value_daily.Password = false;
+            this.ctb_single_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_single_value_daily.TabIndex = 74;
+            // 
+            // ctb_triple_value_daily
+            // 
+            this.ctb_triple_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_triple_value_daily.ChangeTextBoxSize = true;
+            this.ctb_triple_value_daily.CustomText = "Triplo";
+            this.ctb_triple_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_triple_value_daily.Location = new System.Drawing.Point(12, 220);
+            this.ctb_triple_value_daily.Name = "ctb_triple_value_daily";
+            this.ctb_triple_value_daily.Password = false;
+            this.ctb_triple_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_triple_value_daily.TabIndex = 73;
+            // 
+            // ctb_double_value
+            // 
+            this.ctb_double_value.BackColor = System.Drawing.Color.White;
+            this.ctb_double_value.ChangeTextBoxSize = false;
+            this.ctb_double_value.CustomText = "";
+            this.ctb_double_value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_double_value.Location = new System.Drawing.Point(335, 55);
+            this.ctb_double_value.Name = "ctb_double_value";
+            this.ctb_double_value.Password = false;
+            this.ctb_double_value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_double_value.TabIndex = 72;
+            // 
+            // ctb_double_luxury_value
+            // 
+            this.ctb_double_luxury_value.BackColor = System.Drawing.Color.White;
+            this.ctb_double_luxury_value.ChangeTextBoxSize = false;
+            this.ctb_double_luxury_value.CustomText = "";
+            this.ctb_double_luxury_value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_double_luxury_value.Location = new System.Drawing.Point(335, 110);
+            this.ctb_double_luxury_value.Name = "ctb_double_luxury_value";
+            this.ctb_double_luxury_value.Password = false;
+            this.ctb_double_luxury_value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_double_luxury_value.TabIndex = 71;
+            // 
+            // ctb_single_value
+            // 
+            this.ctb_single_value.BackColor = System.Drawing.Color.White;
+            this.ctb_single_value.ChangeTextBoxSize = false;
+            this.ctb_single_value.CustomText = "";
+            this.ctb_single_value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_single_value.Location = new System.Drawing.Point(335, 165);
+            this.ctb_single_value.Name = "ctb_single_value";
+            this.ctb_single_value.Password = false;
+            this.ctb_single_value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_single_value.TabIndex = 70;
+            // 
+            // ctb_triple_value
+            // 
+            this.ctb_triple_value.BackColor = System.Drawing.Color.White;
+            this.ctb_triple_value.ChangeTextBoxSize = false;
+            this.ctb_triple_value.CustomText = "";
+            this.ctb_triple_value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_triple_value.Location = new System.Drawing.Point(335, 220);
+            this.ctb_triple_value.Name = "ctb_triple_value";
+            this.ctb_triple_value.Password = false;
+            this.ctb_triple_value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_triple_value.TabIndex = 69;
+            // 
+            // ctb_quintuple_value_daily
+            // 
+            this.ctb_quintuple_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_quintuple_value_daily.ChangeTextBoxSize = true;
+            this.ctb_quintuple_value_daily.CustomText = "Quintuplo";
+            this.ctb_quintuple_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_quintuple_value_daily.Location = new System.Drawing.Point(12, 330);
+            this.ctb_quintuple_value_daily.Name = "ctb_quintuple_value_daily";
+            this.ctb_quintuple_value_daily.Password = false;
+            this.ctb_quintuple_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_quintuple_value_daily.TabIndex = 68;
+            // 
+            // ctb_quintuple_value
+            // 
+            this.ctb_quintuple_value.BackColor = System.Drawing.Color.White;
+            this.ctb_quintuple_value.ChangeTextBoxSize = false;
+            this.ctb_quintuple_value.CustomText = "";
+            this.ctb_quintuple_value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_quintuple_value.Location = new System.Drawing.Point(335, 330);
+            this.ctb_quintuple_value.Name = "ctb_quintuple_value";
+            this.ctb_quintuple_value.Password = false;
+            this.ctb_quintuple_value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_quintuple_value.TabIndex = 67;
+            // 
+            // ctb_quadruple_Value
+            // 
+            this.ctb_quadruple_Value.BackColor = System.Drawing.Color.White;
+            this.ctb_quadruple_Value.ChangeTextBoxSize = false;
+            this.ctb_quadruple_Value.CustomText = "";
+            this.ctb_quadruple_Value.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_quadruple_Value.Location = new System.Drawing.Point(335, 275);
+            this.ctb_quadruple_Value.Name = "ctb_quadruple_Value";
+            this.ctb_quadruple_Value.Password = false;
+            this.ctb_quadruple_Value.Size = new System.Drawing.Size(289, 49);
+            this.ctb_quadruple_Value.TabIndex = 66;
+            // 
+            // ctb_quadruple_value_daily
+            // 
+            this.ctb_quadruple_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_quadruple_value_daily.ChangeTextBoxSize = true;
+            this.ctb_quadruple_value_daily.CustomText = "Quadruplo";
+            this.ctb_quadruple_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_quadruple_value_daily.Location = new System.Drawing.Point(12, 275);
+            this.ctb_quadruple_value_daily.Name = "ctb_quadruple_value_daily";
+            this.ctb_quadruple_value_daily.Password = false;
+            this.ctb_quadruple_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_quadruple_value_daily.TabIndex = 65;
+            // 
+            // ctb_double_luxury_value_daily
+            // 
+            this.ctb_double_luxury_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_double_luxury_value_daily.ChangeTextBoxSize = true;
+            this.ctb_double_luxury_value_daily.CustomText = "Casal Luxo";
+            this.ctb_double_luxury_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_double_luxury_value_daily.Location = new System.Drawing.Point(12, 110);
+            this.ctb_double_luxury_value_daily.Name = "ctb_double_luxury_value_daily";
+            this.ctb_double_luxury_value_daily.Password = false;
+            this.ctb_double_luxury_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_double_luxury_value_daily.TabIndex = 64;
+            // 
+            // ctb_double_value_daily
+            // 
+            this.ctb_double_value_daily.BackColor = System.Drawing.Color.White;
+            this.ctb_double_value_daily.ChangeTextBoxSize = true;
+            this.ctb_double_value_daily.CustomText = "Casal";
+            this.ctb_double_value_daily.CustomTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ctb_double_value_daily.Location = new System.Drawing.Point(12, 55);
+            this.ctb_double_value_daily.Name = "ctb_double_value_daily";
+            this.ctb_double_value_daily.Password = false;
+            this.ctb_double_value_daily.Size = new System.Drawing.Size(289, 49);
+            this.ctb_double_value_daily.TabIndex = 63;
             // 
             // DailyCalculatorView
             // 
@@ -540,8 +541,8 @@ namespace BenTechPatternMVP.View.DailyCalculator
         #endregion
 
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtStartDate;
+        private System.Windows.Forms.DateTimePicker dtEndDate;
         private System.Windows.Forms.Button btnCalculatePrices;
         private System.Windows.Forms.Label lblNumberOfDays;
         private System.Windows.Forms.TextBox txtNumbOfDays;
@@ -549,18 +550,18 @@ namespace BenTechPatternMVP.View.DailyCalculator
         private System.Windows.Forms.TextBox txbDiscount;
         private System.Windows.Forms.Panel panelTopBlue;
         private System.Windows.Forms.Panel panelLeft;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateSingle;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateTriple;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueCouple;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueLuxuryCouple;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueSingle;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueTriple;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateQuintuple;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueQuintuple;
-        private CustomTextBox.CustomTextBoxView ctbTotalValueQuadruple;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateQuadruple;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateLuxuryCouple;
-        private CustomTextBox.CustomTextBoxView ctbDailyRateCouple;
+        private CustomTextBox.CustomTextBoxView ctb_single_value_daily;
+        private CustomTextBox.CustomTextBoxView ctb_triple_value_daily;
+        private CustomTextBox.CustomTextBoxView ctb_double_value;
+        private CustomTextBox.CustomTextBoxView ctb_double_luxury_value;
+        private CustomTextBox.CustomTextBoxView ctb_single_value;
+        private CustomTextBox.CustomTextBoxView ctb_triple_value;
+        private CustomTextBox.CustomTextBoxView ctb_quintuple_value_daily;
+        private CustomTextBox.CustomTextBoxView ctb_quintuple_value;
+        private CustomTextBox.CustomTextBoxView ctb_quadruple_Value;
+        private CustomTextBox.CustomTextBoxView ctb_quadruple_value_daily;
+        private CustomTextBox.CustomTextBoxView ctb_double_luxury_value_daily;
+        private CustomTextBox.CustomTextBoxView ctb_double_value_daily;
         private FontAwesome.Sharp.IconButton ibtnShowEmail;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.Label lblDailyPrice;
