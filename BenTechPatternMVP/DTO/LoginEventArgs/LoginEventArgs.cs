@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BenTechPatternMVP.View.Login
+namespace BenTechPatternMVP.DTO.LoginEventArgs
 {
     public class LoginEventArgs: EventArgs
     {

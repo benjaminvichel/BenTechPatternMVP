@@ -1,5 +1,6 @@
 ﻿using BenTechPatternMVP.Context;
 using BenTechPatternMVP.DTO;
+using BenTechPatternMVP.DTO.LoginEventArgs;
 using BenTechPatternMVP.Services.Login;
 using BenTechPatternMVP.View.Login;
 using System;
@@ -11,7 +12,7 @@ namespace BenTechPatternMVP.Presenter.Login
     public class LoginPresenter
     {
         private readonly ILoginView _loginView;
-        private readonly LoginService _loginService;
+        private readonly ILoginService _loginService;
         //events:
         public event Action LoginSuccessful;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BenTechPatternMVP.DTO
 {
-    class LoginDTO: ILoginDTO
+    public class LoginDTO: ILoginDTO
     {
         public string Name { get; set; }
         public string Token { get; set; }

@@ -99,6 +99,7 @@
     <Compile Include="Repository\Prices\PriceRepository.cs" />
     <Compile Include="Services\Dates\DatesService.cs" />
     <Compile Include="Services\Employees\EmployeesService.cs" />
+    <Compile Include="Services\Login\ILoginService.cs" />
     <Compile Include="Services\Login\LoginService.cs" />
     <Compile Include="Services\Prices\PriceService.cs" />
     <Compile Include="View\Calendar\CalendarView.cs">
@@ -159,7 +160,7 @@
     </Compile>
     <Compile Include="View\Home\IHomeView.cs" />
     <Compile Include="View\Login\ILoginView.cs" />
-    <Compile Include="View\Login\LoginEventArgs.cs" />
+    <Compile Include="DTO\LoginEventArgs\LoginEventArgs.cs" />
     <Compile Include="View\Login\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

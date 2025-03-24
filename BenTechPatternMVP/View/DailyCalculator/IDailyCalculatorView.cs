@@ -13,6 +13,12 @@ namespace BenTechPatternMVP.View.DailyCalculator
 
         int NumberOfDays { get; set; }
         double Discount { get; set; }
+        double NumberOfSingles { get; set; }
+
+        double NumberOfChild03To06 { get; set; }
+
+        double NumberOfChild07To10 { get; set; }
+
         DateTime StartDate { get; }
         DateTime EndDate { get; }
 

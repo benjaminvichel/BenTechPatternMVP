@@ -42,7 +42,7 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
             string startDateString;
             string endDateString;
             //Remove 1 day from endDate.
-            //I want to exclude one day from the calculation because, otherwise, it takes the values from the final day as well.
+            //Exclude one day from the calculation, otherwise, it takes the values from the final day as well.
             //The daily rate should be for today to tomorrow,
             //not the value of today plus the value of tomorrow
 
@@ -98,8 +98,15 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
             _model.Child07To10_value = child07To10Value;
 
 
-            //apply discount
-            doubleValue *= (1 - _model.Discount / 100);
+            //Custom prices calculations for custom field
+            double customSingles = _view.NumberOfSingles * _model.Single_value;
+            double customChild03To06 = _view.NumberOfChild03To06* _model.Child03To06_value;
+            double customChild07To10 = _view.NumberOfChild07To10*_model.Child07To10_value;
+            double customPriceTotal = _model.Double_value + customSingles + customChild03To06 + customChild07To10;
+            
+
+          //apply discount
+          doubleValue *= (1 - _model.Discount / 100);
             doubleLuxury *= (1 - _model.Discount / 100);
             singleValue *= (1 - _model.Discount / 100);
             tripleValue *= (1 - _model.Discount / 100);
@@ -107,7 +114,7 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
             quintupleValue *= (1 - _model.Discount / 100);
             child03To06Value *= (1 - _model.Discount / 100);
             child07To10Value *= (1 - _model.Discount / 100);
-
+            customPriceTotal *= (1 - _model.Discount / 100);
 
             //calculate daily values
             double double_daily_price = Math.Round(doubleValue / numberOfDays, 2);
@@ -118,6 +125,8 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
             double quintuple_daily_price = Math.Round(quintupleValue / numberOfDays, 2);
             double child03To06_daily_price = Math.Round(child03To06Value / numberOfDays, 2);
             double child07To10_daily_price = Math.Round(child07To10Value / numberOfDays, 2);
+            double customPriceDaily = Math.Round(customPriceTotal / numberOfDays, 2);
+
 
 
             //create DTO to send all prices to the View
@@ -131,6 +140,7 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
                 Quintuple_value = quintupleValue,
                 Child03To06_value = child03To06Value,
                 Child07To10_value = child07To10Value,
+                CustomPriceTotal = customPriceTotal,
                 Double_value_daily = double_daily_price,
                 Double_Luxury_value_daily = double_Luxury_daily_price,
                 Single_value_daily = single_daily_price,
@@ -138,7 +148,8 @@ namespace BenTechPatternMVP.Presenter.DailyCalculator
                 Quadruple_value_daily = quadruple_daily_price,
                 Quintuple_value_daily = quintuple_daily_price,
                 Child03To06_value_daily = child03To06_daily_price,
-                Child07To10_value_daily = child07To10_daily_price
+                Child07To10_value_daily = child07To10_daily_price,
+                CustomPriceDaily = customPriceDaily
 
             };
 

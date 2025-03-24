@@ -18,6 +18,22 @@ namespace BenTechPatternMVP.View.DailyCalculator
             get => double.TryParse(txbDiscount.Text, out double discount) ? discount : 0;
             set { }
         }
+        public double NumberOfSingles
+        {
+            get => double.TryParse(cbSingleCustom.Text, out double singleValue) ? singleValue : 0;
+            set { }
+        }
+        public double NumberOfChild03To06
+        {
+            get => double.TryParse(cbChild03To06.Text, out double child03To06) ? child03To06 : 0;
+            set { }
+        }
+        public double NumberOfChild07To10
+        {
+            get => double.TryParse(cbChild07To10.Text, out double child07To10) ? child07To10 : 0;
+            set { }
+        }
+      
         public DateTime StartDate => DateTime.TryParse(dtStartDate.Text, out DateTime date) ? date : DateTime.MinValue;
         public DateTime EndDate { get => DateTime.TryParse(dtEndDate.Text, out DateTime date) ? date : DateTime.MinValue; }
 
@@ -50,6 +66,9 @@ namespace BenTechPatternMVP.View.DailyCalculator
 
             ctb_quintuple_value_daily.SetTextBoxValue(prices.Quintuple_value_daily.ToString());
             ctb_quintuple_value.SetTextBoxValue(prices.Quintuple_value.ToString());
+
+            ctbDailyPriceCustom.SetTextBoxValue(prices.CustomPriceDaily.ToString());
+            ctbTotalPriceCustom.SetTextBoxValue(prices.CustomPriceTotal.ToString());
         }
 
 

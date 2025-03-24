@@ -16,6 +16,7 @@ namespace BenTechPatternMVP.DTO.Prices
         public double Quintuple_value { get; set; }
         public double Child03To06_value { get; set; }
         public double Child07To10_value { get; set; }
+        public double CustomPriceTotal { get; set; }//custom field
         public double Double_value_daily { get; set; }
         public double Double_Luxury_value_daily { get; set; }
         public double Single_value_daily { get; set; }
@@ -24,6 +25,6 @@ namespace BenTechPatternMVP.DTO.Prices
         public double Quintuple_value_daily { get; set; }
         public double Child03To06_value_daily { get; set; }
         public double Child07To10_value_daily { get; set; }
-
+        public double CustomPriceDaily { get; set; }//custom field
     }
 }
